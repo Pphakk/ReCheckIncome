@@ -19,9 +19,9 @@ hourly = rate / 8
 def calculate_wage(shift_type, rate, hourly):
     """คำนวณค่าแรงตามประเภทกะ"""
     if shift_type in ['A', 'C']:
-        return rate * 8
+        return rate
     elif shift_type in ['D', 'E']:
-        return (rate * 8) + (rate * 1.5 * 2.5)
+        return (rate) + (hourly * 1.5 * 2.5)
     elif shift_type in ['OTD', 'OTE']:
         return (rate * 2) + (hourly * 2.5 * 3)
     else:
