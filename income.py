@@ -24,6 +24,8 @@ def calculate_wage(shift_type, rate, hourly):
         return (rate) + (hourly * 1.5 * 2.5)
     elif shift_type in ['OTD', 'OTE']:
         return (rate * 2) + (hourly * 2.5 * 3)
+    elif shift_type in ['AN', 'H']:
+        return rate
     else:
         return 0
 
@@ -57,6 +59,8 @@ C = col3.number_input("C (ดึก)", 0, step=1, key='C_count')
 E = col1.number_input("E (C+OT)", 0, step=1, key='E_count')
 OTD = col2.number_input("OTD (วันหยุด)", 0, step=1, key='OTD_count')
 OTE = col3.number_input("OTE (หยุด+ดึก)", 0, step=1, key='OTE_count')
+AN = col1.number_input("AN (พักร้อน)", 0, step=1, key='AN_count')
+H = col2.number_input("H (นักขัตฤกษ์)", 0, step=1, key='H_count')
 
 # ข้อมูลแต่ละกะ
 shifts = {
@@ -65,7 +69,9 @@ shifts = {
     'C': {'label': 'กะ C', 'count': C},
     'E': {'label': 'กะ E', 'count': E},
     'OTD': {'label': 'OTD', 'count': OTD},
-    'OTE': {'label': 'OTE', 'count': OTE}
+    'OTE': {'label': 'OTE', 'count': OTE},
+    'AN': {'label': 'AN (พักร้อน)', 'count': AN},
+    'H': {'label': 'H (นักขัตฤกษ์)', 'count': H}
 }
 
 # คำนวณ
